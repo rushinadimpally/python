@@ -19,3 +19,12 @@ rushi@rushi-study:~/dev/git/python/c_module$ ./a.out
 rushi@rushi-study:~/dev/git/python/c_module$ LD_LIBRARY_PATH=./ ./a.out
 2
 
+
+# for python extensions, it's necessary to also add the python include path:
+rushi@rushi-study:~/dev/git/python/c_module$ g++ -I./ -I /usr/include/python3.7/ -shared -o lib
+extension.so sample_extension.cc
+
+# create the library above
+# and then also create a setup.py file
+# as shown in this directroy and run:
+rushi@rushi-study:~/dev/git/python/c_module$ python3 setup.py build_ext --inplace
